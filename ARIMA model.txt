@@ -1,0 +1,16 @@
+install.packages("forecast")
+library(forecast)
+png("TimeSeries.png")
+plot(BJsales,main"Graph without forecasting",col main="dark green")
+dev.off()
+png(file="TimeSeriesARIMA.png")
+fit<-auto.arima(BJsales)
+forecastedValues<-forecast(fit,10)
+print(forecastedValues)
+plot(forecastedValues,main="Graph with forecasting" ,col main="dark green")
+dev.off()
+pre<-predict(fit)
+print(pre)
+
+
+

@@ -1,0 +1,58 @@
+# Import required module
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Creating dataset
+cars = ['AUDI', 'BMW', 'FORD', 'TESLA', 'JAGUAR', 'MERCEDES']
+data = [23, 17, 35, 29, 12, 41]
+
+# Creating explode data
+explode = (0.1, 0.0, 0.2, 0.3, 0.0, 0.0)
+
+# Creating color parameters
+colors = ("orange", "cyan", "brown", "grey", "indigo", "beige")
+
+# Wedge properties
+wp = {'linewidth': 1, 'edgecolor': "green"}
+
+# Creating autocpt arguments
+def func(pct, allvalues):
+ absolute = int(pct / 100.*np.sum(allvalues))
+ return "{:.1f}%\n({:d} g)".format(pct, absolute)
+
+# Creating plot
+fig, ax = plt.subplots(figsize=(10, 7))
+wedges, texts, autotexts = ax.pie(data, autopct=lambda pct: func(pct, data), explode=explode,
+labels=cars, shadow=True, colors=colors, startangle=90, wedgeprops=wp,
+textprops=dict(color="magenta"))
+
+# Adding legend
+ax.legend(wedges, cars, title="Cars", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+plt.setp(autotexts, size=8, weight="bold")
+ax.set_title("Customizing pie chart")
+
+# Show plot
+plt.show()
+
+
+# import required modules
+import seaborn as sns
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+ 
+# assign axis values
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+y = [5, 6, 2, 3, 13, 4, 1, 2, 4, 8]
+z = [2, 3, 3, 3, 5, 7, 9, 11, 9, 10]
+ 
+# adjust size of plot
+sns.set(rc={'figure.figsize': (8, 5)})
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(x, y, z, c='r', marker='o')
+ 
+# assign labels
+ax.set_xlabel('X Label'), ax.set_ylabel('Y Label'), ax.set_zlabel('Z Label')
+ 
+# display illustration
+plt.show()

@@ -1,0 +1,7 @@
+data<-read.csv("income.data.csv")
+print(data)
+plot(data)
+relation = lm(data)
+print(realtion)
+print(summary(relation))
+
